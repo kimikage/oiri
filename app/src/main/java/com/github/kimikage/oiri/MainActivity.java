@@ -13,8 +13,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toast.makeText(this, jnitest(), Toast.LENGTH_LONG).show();
     }
 
 
@@ -34,6 +32,8 @@ public class MainActivity extends Activity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            Toast.makeText(this, jnitest(), Toast.LENGTH_LONG).show();
             return true;
         }
 
@@ -43,6 +43,7 @@ public class MainActivity extends Activity {
     public native String  jnitest();
 
     static {
-        System.loadLibrary("jnitest");
+        System.loadLibrary("ngspice");
+        System.loadLibrary("oiri");
     }
 }
