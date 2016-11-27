@@ -1,3 +1,10 @@
+/*
+ * Copyright (c) 2016 Oiri Project
+ *
+ *  This software is distributed under an MIT-style license.
+ *  See LICENSE file for more information.
+ */
+
 package com.github.kimikage.oiri;
 
 import android.app.Activity;
@@ -9,12 +16,16 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+    static {
+        System.loadLibrary("ngspice");
+        System.loadLibrary("oiri");
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -40,10 +51,5 @@ public class MainActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public native String  jnitest();
-
-    static {
-        System.loadLibrary("ngspice");
-        System.loadLibrary("oiri");
-    }
+    public native String jnitest();
 }
